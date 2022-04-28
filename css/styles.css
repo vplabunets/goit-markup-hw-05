@@ -578,10 +578,12 @@ address {
   background-color: #2196f3e5;
   left: 0;
   bottom: 0;
+  /* Выезд текста */
   transform: translateY(100%);
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .portfolio-item-title {
   margin-bottom: 4px;
   font-weight: 700;
@@ -646,38 +648,48 @@ address {
 .backdrop {
   position: fixed;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.2);
   width: 100vw;
   height: 100vh;
-  transition: opacity 500ms, visibility 500ms;
+  background-color: rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
+  transition-duration: 500ms;
+}
+.backdrop.is-hidden .modal {
+  transform: scale(0) skewX(-90deg) rotateX(-90deg);
 }
 
-.backdrop.is-hidden .modal {
-  /* transform: scale(0.5) rotate(-290deg); */
-}
 .modal {
-  position: absolute;
-  min-height: 581px;
+  margin: auto;
   width: 528px;
+  min-height: 581px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 1);
+  position: absolute;
+  transition-duration: 500ms;
+  transform: scale(1) skewX(0) rotateX(0);
 }
 
 .modal-close-btn {
-  position: absolute;
+  width: 30px;
+  height: 30px;
   padding: 0;
   border: 0;
   background-color: transparent;
+  border-radius: 50%;
+  position: absolute;
   top: 8px;
   right: 8px;
-  border-radius: 50%;
 }
 
-/* .is-hidden {
-  opacity: 1;
+.is-hidden {
+  /* задает (не)прозрачность */
+  opacity: 0;
+  /* запрещает события */
   pointer-events: none;
+  /* запрещает фокус */
   visibility: hidden;
-} */
+}
