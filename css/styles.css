@@ -642,3 +642,42 @@ address {
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 500ms, visibility 500ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backdrop.is-hidden .modal {
+  /* transform: scale(0.5) rotate(-290deg); */
+}
+.modal {
+  position: absolute;
+  min-height: 581px;
+  width: 528px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  top: 8px;
+  right: 8px;
+  border-radius: 50%;
+}
+
+/* .is-hidden {
+  opacity: 1;
+  pointer-events: none;
+  visibility: hidden;
+} */
